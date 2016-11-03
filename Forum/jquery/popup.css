@@ -1,0 +1,9 @@
+.ui-simpledialog-screen-modal{
+    opacity: 0.4;
+}
+.ui-simpledialog-container {
+    border: 1px solid rgb(221, 221, 221) !important;
+}
+.ui-grid-a > div {
+    padding: 2px;
+}

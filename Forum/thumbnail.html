@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <title>Vimeo</title>
+</head>
+<body>
+    <div>
+        <img src="" id="thumbImg">
+    </div>
+    <script>
+        $(document).ready(function () {
+            var vimeoVideoUrl = 'https://player.vimeo.com/video/30572181';
+            var match = /vimeo.*\/(\d+)/i.exec(vimeoVideoUrl);
+            if (match) {
+                var vimeoVideoID = match[1];
+                $.getJSON('http://www.vimeo.com/api/v2/video/' + vimeoVideoID + '.json?callback=?', { format: "json" }, function (data) {
+                    featuredImg = data[0].thumbnail_large;
+                    $('#thumbImg').attr("src", featuredImg);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
